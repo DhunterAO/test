@@ -19,3 +19,11 @@ func TestRandIntIn(t *testing.T) {
 		}
 	}
 }
+
+func TestRandIntInErr(t *testing.T) {
+	l := RandInt()
+	r := l
+	if rand, err := RandIntIn(l, r); rand != 0 || err != ErrRandRange {
+		t.Error("RandIntIn should return 0 and ErrRandRange")
+	}
+}
